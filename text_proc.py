@@ -42,10 +42,13 @@ tweet = 'RT @marcobonzanini: just an example! :D http://example.com #NLP'
 
 def clean_text(tweet):
     #print(word_tokenize(tweet))
-    print(preprocess(tweet))
-    return tweet
+    #print(preprocess(tweet))
+    #return tweet
+    return preprocess(tweet)
+
 
 '''
+
 def clean_text(tweet):
     raw_docs = tweet
     # Tokenizing text into bags of words
@@ -69,6 +72,8 @@ def clean_text(tweet):
     
         tokenized_docs_no_punctuation.append(new_review)
 
+
+    #return tokenized_docs_no_punctuation
     from nltk.corpus import stopwords
 
     tokenized_docs_no_stopwords = []
@@ -106,14 +111,19 @@ def clean_text(tweet):
 
     return clean_text
 '''
+
 if __name__ == "__main__":
     filename = 'all_tweets_text.txt'
     file = open(filename, 'r')
     lines = file.readlines()
+    cnt = 1
     for line in lines:
+        print ("COUNT " + str(cnt))
         print (line)
         c_line = clean_text(line)
+        print("C_LINE")
         print (c_line)
+        cnt += 1
 
     #ct = clean_text(filename)
     #print(ct)
